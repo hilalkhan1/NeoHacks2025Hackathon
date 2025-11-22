@@ -1,0 +1,4 @@
+Task,Method,Accuracy,F1-Score
+Task I: Cancer Detection,Logistic Regression,1.0000 ± 0.0000,1.0000
+Task II: Stage Classification,Neural Network Ensemble (5 models),0.9452 ± 0.0129,0.9476
+Task III: Risk Factor Analysis,Random Forest,0.8331 ± 0.0078,0.8918
