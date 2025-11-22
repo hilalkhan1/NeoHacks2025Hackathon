@@ -292,30 +292,6 @@ Combined 4 different biological data types for comprehensive cancer analysis:
 
 ---
 
-## 🎓 Defense Points for Judges
-
-### Q: "Why 100% accuracy? Isn't that overfitting?"
-**A:** "For Task I, 100% accuracy is biologically plausible because we're distinguishing tumor tissue from normal tissue at the molecular level using DNA methylation. This is different from clinical diagnosis - we're using laboratory-measured methylation from tissue samples, which shows fundamental biochemical differences. This is a well-established biomarker in cancer research, not overfitting."
-
-### Q: "Did you use data scaling/normalization?"
-**A:** "We used task-appropriate normalization. Expression data was log2-transformed to handle skewed distributions. Methylation data is already normalized (beta values 0-1). We didn't apply StandardScaler because: (1) Logistic Regression is relatively robust to scaling, (2) Random Forest is scale-invariant, and (3) our data was already in appropriate ranges. If needed, we could add StandardScaler for consistency."
-
-### Q: "Are these training or test accuracies?"
-**A:** "These are cross-validation accuracies - specifically, validation set accuracies from 5-fold CV. We DO NOT report training accuracy. Each fold uses 80% data for training and 20% for validation. The model is trained on the training set and evaluated on the held-out validation set. This is NOT test accuracy (we don't have external test data), but CV accuracy is the best estimate of test performance."
-
-### Q: "How do you prevent data leakage?"
-**A:** "Critical point: We perform feature selection INSIDE each cross-validation fold. For example, in Task I, we select the top 500 CpG sites using ONLY the training data from that fold, then apply those features to the validation set. This prevents leakage. If we selected features on the full dataset first, that would leak information and inflate accuracy."
-
-### Q: "Which files did you use?"
-**A:** "We used 5 out of 7 files. Task I uses methylation data. Task II uses clinical (for stage labels), mutations, expression, and methylation for multi-modal prediction. Task III uses clinical and exposure data for risk factors. The follow_up and pathology files contain additional clinical details that would be valuable for future survival analysis, but weren't necessary for our current classification tasks."
-
-### Q: "What does each model look for?"
-- **Task I:** DNA methylation beta values at 500 key CpG sites showing aberrant methylation patterns
-- **Task II:** Combined mutations (TP53, PIK3CA), expression changes, and methylation shifts indicating disease progression
-- **Task III:** Clinical risk factors - primarily smoking history and cancer stage
-
----
-
 ## 📝 Notes & Limitations
 
 ### Strengths
@@ -372,8 +348,6 @@ Combined 4 different biological data types for comprehensive cancer analysis:
 **Event:** NeoHacks 2025 Hackathon
 **Dataset:** TCGA HNSC (The Cancer Genome Atlas)
 
-For questions about this pipeline or collaboration opportunities, please reach out through the NeoHacks 2025 platform.
-
 ---
 
 ## 🏆 Competition Highlights
@@ -392,3 +366,4 @@ For questions about this pipeline or collaboration opportunities, please reach o
 ---
 
 *Last Updated: 2025-11-22*
+
