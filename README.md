@@ -138,7 +138,7 @@ pip install pandas numpy scikit-learn torch imblearn matplotlib seaborn jupyter
 
 1. **Navigate to notebooks directory:**
    ```bash
-   cd /home/hilalkhan/NeoHacks/ML_Pipeline/notebooks
+   cd NeoHacks2025Hackathon/ML_Pipeline/notebooks
    ```
 
 2. **Launch Jupyter Notebook:**
@@ -366,4 +366,5 @@ Combined 4 different biological data types for comprehensive cancer analysis:
 ---
 
 *Last Updated: 2025-11-22*
+
 
